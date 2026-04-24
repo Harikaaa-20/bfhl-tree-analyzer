@@ -1,14 +1,16 @@
-# SRM Full Stack Engineering Challenge - BFHL API
+# SRM Full Stack Engineering Challenge — BFHL API
 
 ## Overview
+This project implements the required `POST /bfhl` API along with a frontend interface to test it.
 
-This project implements the required `POST /bfhl` API and a frontend interface to test it.
+---
 
 ## Tech Stack
-
 - Node.js
 - Express
 - HTML, CSS, JavaScript
+
+---
 
 ## API
 
@@ -16,7 +18,6 @@ This project implements the required `POST /bfhl` API and a frontend interface t
 **Content-Type:** `application/json`
 
 ### Request Body
-
 ```json
 {
   "data": ["A->B", "A->C", "B->D"]
@@ -24,7 +25,6 @@ This project implements the required `POST /bfhl` API and a frontend interface t
 ```
 
 ### Response Fields
-
 - `user_id`
 - `email_id`
 - `college_roll_number`
@@ -34,7 +34,6 @@ This project implements the required `POST /bfhl` API and a frontend interface t
 - `summary`
 
 ### Processing Covered
-
 - Validates entries in `X->Y` format
 - Rejects invalid entries and self-loops
 - Tracks duplicate edges after the first occurrence
@@ -47,10 +46,11 @@ This project implements the required `POST /bfhl` API and a frontend interface t
 ## Frontend
 
 The frontend is served from `/` and allows users to:
-- enter node edges
-- submit the request to `/bfhl`
-- view the structured API response
-- see an error message if the request fails
+
+- Enter node edges
+- Submit the request to `/bfhl`
+- View the structured API response
+- See an error message if the request fails
 
 ## Run Locally
 
@@ -78,17 +78,3 @@ The evaluator will call:
 ```text
 <your-base-url>/bfhl
 ```
-
-## Submission Requirements
-
-Submit these 3 links:
-
-- Hosted API base URL: `https://bfhl-tree-analyzer.onrender.com`
-- Hosted frontend URL: `https://bfhl-tree-analyzer.onrender.com`
-- Public GitHub repository URL: `https://github.com/Harikaaa-20/bfhl-tree-analyzer`
-
-## Live Links
-
-- Frontend: `https://bfhl-tree-analyzer.onrender.com`
-- API base URL: `https://bfhl-tree-analyzer.onrender.com`
-- API endpoint: `https://bfhl-tree-analyzer.onrender.com/bfhl`
