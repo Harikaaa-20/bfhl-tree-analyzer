@@ -1,37 +1,21 @@
-# BFHL - SRM Full Stack Engineering Challenge
+# SRM Full Stack Engineering Challenge - BFHL API
 
-This project is a submission for the SRM Full Stack Engineering Challenge.
+## Overview
 
-It includes:
-- a hosted REST API at `POST /bfhl`
-- a frontend to test the API visually
-- logic to validate edges, build hierarchies, detect cycles, and generate the required summary
+This project implements the required `POST /bfhl` API and a frontend interface to test it.
 
 ## Tech Stack
 
 - Node.js
 - Express
-- Vanilla HTML, CSS, and JavaScript
+- HTML, CSS, JavaScript
 
-## Project Structure
+## API
 
-```text
-.
-├── index.js
-├── package.json
-├── package-lock.json
-├── public
-│   └── index.html
-└── README.md
-```
-
-## API Endpoint
-
-**Method:** `POST`  
-**Route:** `/bfhl`  
+**Endpoint:** `POST /bfhl`  
 **Content-Type:** `application/json`
 
-### Sample Request
+### Request Body
 
 ```json
 {
@@ -39,100 +23,55 @@ It includes:
 }
 ```
 
-### Sample Response Shape
+### Response Fields
 
-```json
-{
-  "user_id": "chandraharika_20022005",
-  "email_id": "ch9930@srmist.edu.in",
-  "college_roll_number": "RA2311029010036",
-  "hierarchies": [
-    {
-      "root": "A",
-      "tree": {
-        "A": {
-          "B": {
-            "D": {}
-          },
-          "C": {}
-        }
-      },
-      "depth": 3
-    }
-  ],
-  "invalid_entries": [],
-  "duplicate_edges": [],
-  "summary": {
-    "total_trees": 1,
-    "total_cycles": 0,
-    "largest_tree_root": "A"
-  }
-}
-```
+- `user_id`
+- `email_id`
+- `college_roll_number`
+- `hierarchies`
+- `invalid_entries`
+- `duplicate_edges`
+- `summary`
 
-## Features Implemented
+### Processing Covered
 
-- Validates node format using the required `X->Y` rule
-- Rejects self-loops like `A->A`
-- Trims input before validation
-- Tracks invalid entries
+- Validates entries in `X->Y` format
+- Rejects invalid entries and self-loops
 - Tracks duplicate edges after the first occurrence
-- Handles multiple disconnected groups
-- Applies first-parent-wins logic for diamond or multi-parent cases
+- Builds multiple independent hierarchies
+- Applies first-parent-wins for multi-parent cases
 - Detects cycles and returns `tree: {}`
-- Calculates depth only for non-cyclic trees
-- Returns the required summary object
-- Enables CORS for cross-origin evaluation
+- Calculates depth for non-cyclic trees
+- Returns `total_trees`, `total_cycles`, and `largest_tree_root`
 
 ## Frontend
 
-The frontend is served from the `public/` folder and is available from the root route `/`.
+The frontend is served from `/` and allows users to:
+- enter node edges
+- submit the request to `/bfhl`
+- view the structured API response
+- see an error message if the request fails
 
-It allows the evaluator or user to:
-- enter edges as comma-separated or line-separated values
-- submit data to the API
-- view hierarchies, invalid entries, duplicate edges, and summary output
-- see an error message if the API request fails
-
-## Local Setup
-
-### 1. Install dependencies
+## Run Locally
 
 ```bash
 npm install
-```
-
-### 2. Start the server
-
-```bash
 npm start
 ```
 
-By default, the app runs on:
+Server runs on:
 
 ```text
 http://localhost:3000
 ```
 
-## Deployment Notes
+## Deployment
 
-This project can be deployed on platforms such as:
-- Render
-- Railway
-- Vercel
-- Netlify Functions or another Node-compatible hosting setup
-
-For a standard Node deployment, use:
+Start command:
 
 ```bash
 node index.js
 ```
-
-## Submission Checklist
-
-- Hosted API base URL
-- Hosted frontend URL
-- Public GitHub repository URL
 
 The evaluator will call:
 
@@ -140,9 +79,16 @@ The evaluator will call:
 <your-base-url>/bfhl
 ```
 
-## Notes
+## Submission Requirements
 
-- The API accepts JSON POST requests at `/bfhl`
-- CORS is enabled
-- The frontend and backend are served from the same project
-- Port is configurable with `process.env.PORT`
+Submit these 3 links:
+
+- Hosted API base URL: `https://bfhl-tree-analyzer.onrender.com`
+- Hosted frontend URL: `https://bfhl-tree-analyzer.onrender.com`
+- Public GitHub repository URL: `https://github.com/Harikaaa-20/bfhl-tree-analyzer`
+
+## Live Links
+
+- Frontend: `https://bfhl-tree-analyzer.onrender.com`
+- API base URL: `https://bfhl-tree-analyzer.onrender.com`
+- API endpoint: `https://bfhl-tree-analyzer.onrender.com/bfhl`
