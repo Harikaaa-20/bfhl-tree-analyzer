@@ -78,3 +78,7 @@ The evaluator will call:
 ```text
 <your-base-url>/bfhl
 ```
+
+## Links
+- Hosted API & Frontend: `https://bfhl-tree-analyzer.onrender.com`
+- API Endpoint: `https://bfhl-tree-analyzer.onrender.com/bfhl`
